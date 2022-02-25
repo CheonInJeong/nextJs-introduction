@@ -5,9 +5,15 @@ export default function Home(){
   
     return (
         <div>
-            <NavBar></NavBar>
             <h1>HELLO</h1>
-        
+            <style jsx global>
+                {`
+                a {
+                    color : white;
+                }
+                `}
+            </style>
         </div>
+     
         );
 }
