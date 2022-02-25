@@ -5,12 +5,7 @@ import { useRouter } from "next/router";
 export default function Home({ results }){
     const router = useRouter();
     const onClick = (id, title) => {
-        router.push({
-            pathname : `/movies/${id}`,
-            query : {
-                title,
-            },
-        }, `/movies/${id}`); //url masking
+        router.push(`/movies/${title}/${id}`); //url masking
     }
     return (
         <div>
@@ -19,7 +14,7 @@ export default function Home({ results }){
            {results?.map((movie) => (
                 <div onClick={()=> onClick(movie.id,movie.original_title)} className="movie" key={movie.key}>
                     <h4>
-                    <Link href={`/movies/${movie.id}`}key={movie.id}>
+                    <Link href={`/movies/${movie.original_title}/${movie.id}`}key={movie.id}>
                         <a>{movie.original_title}</a>
                     </Link>
                     </h4>
